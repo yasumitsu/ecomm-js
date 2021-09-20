@@ -3,7 +3,7 @@ const crypto = require('crypto');
 
 module.exports = class Repository {
 	constructor(filename) {
-		if (!filename) throw new Error('Creating a repository requires a filename.');
+		if (!filename) throw new Error('Creating a repository requires a filename');
 
 		this.filename = filename;
 		try {
@@ -54,7 +54,7 @@ module.exports = class Repository {
 		const records = await this.getAll();
 		const record = records.find((record) => record.id === id);
 
-		if (!record) throw new Error(`Record ${id} not found`);
+		if (!record) throw new Error(`Record with id ${id} not found`);
 
 		Object.assign(record, attrs);
 		await this.writeAll(records);
